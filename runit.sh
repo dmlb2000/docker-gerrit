@@ -1,5 +1,6 @@
 #!/bin/bash -x
 
+curl -L -o /gerrit/gerrit.war https://www.gerritcodereview.com/download/gerrit-$GERRIT_VERSION.war
 MY_IP=$(ip a show dev eth0 | grep 'inet ' | awk '{ print $2 }' | cut -d/ -f1)
 if [ -z $GERRIT_ADDR ] ; then
   GERRIT_ADDR=$MY_IP
