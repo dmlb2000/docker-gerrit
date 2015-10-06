@@ -8,6 +8,7 @@ gerrit:
    - gerrit-mysql:mysql
    - gerrit-mail:mail
   privileged: true
+  user: "1000"
 gerrit-mysql:
   image: "mysql"
   environment:

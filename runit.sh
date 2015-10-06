@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-curl -L -o /gerrit/gerrit.war https://www.gerritcodereview.com/download/gerrit-$GERRIT_VERSION.war
+curl -L -o /tmp/gerrit.war https://www.gerritcodereview.com/download/gerrit-$GERRIT_VERSION.war
 MY_IP=$(ip a show dev eth0 | grep 'inet ' | awk '{ print $2 }' | cut -d/ -f1)
 if [ -z $GERRIT_ADDR ] ; then
   GERRIT_ADDR=$MY_IP
@@ -18,6 +18,6 @@ sed -i 's/@@GERRIT_ADDR@@/'$GERRIT_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_ADDR@@/'$MAIL_PORT_25_TCP_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_USER@@/'$MAIL_USER'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_PASS@@/'$MAIL_PASS'/' $GERRIT_CONFIG
-java -jar /gerrit/gerrit.war init -d /data --batch
-java -jar /gerrit/gerrit.war reindex -d /data
+java -jar /tmp/gerrit.war init -d /data --batch
+java -jar /tmp/gerrit.war reindex -d /data
 /data/bin/gerrit.sh supervise
