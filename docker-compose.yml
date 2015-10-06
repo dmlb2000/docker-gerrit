@@ -1,0 +1,24 @@
+gerrit:
+  image: "dmlb2000/docker-gerrit"
+  ports:
+   - "8000:8000"
+  volumes:
+   - "./data:/data"
+  links:
+   - gerrit-mysql:mysql
+   - gerrit-mail:mail
+  environment:
+    MAIL_USER: "gerrit"
+    MAIL_PASS: "gerrit"
+gerrit-mysql:
+  image: "mysql"
+  environment:
+    MYSQL_ROOT_PASSWORD: "password"
+    MYSQL_DATABASE: "gerrit"
+    MYSQL_USER: "gerrit"
+    MYSQL_PASSWORD: "gerrit"
+gerrit-mail:
+  image: "catatnight/postfix"
+  environment:
+    maildomain: mail.dmlb2000.org
+    smtp_user: gerrit:gerrit

@@ -9,6 +9,9 @@ cp -a /gerrit/etc /data/
 GERRIT_CONFIG=/data/etc/gerrit.config
 sed -i 's/@@MYSQL_ADDR@@/'$MYSQL_PORT_3306_TCP_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@GERRIT_ADDR@@/'$GERRIT_ADDR'/' $GERRIT_CONFIG
+sed -i 's/@@MAIL_ADDR@@/'$MAIL_PORT_25_TCP_ADDR'/' $GERRIT_CONFIG
+sed -i 's/@@MAIL_USER@@/'$MAIL_USER'/' $GERRIT_CONFIG
+sed -i 's/@@MAIL_PASS@@/'$MAIL_PASS'/' $GERRIT_CONFIG
 java -jar /gerrit/gerrit.war init -d /data --batch
 java -jar /gerrit/gerrit.war reindex -d /data
 /data/bin/gerrit.sh supervise
