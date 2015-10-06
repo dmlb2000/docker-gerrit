@@ -1,15 +1,13 @@
 gerrit:
   image: "dmlb2000/docker-gerrit"
   ports:
-   - "8000:8000"
+   - "8080:8080"
   volumes:
    - "./data:/data"
   links:
    - gerrit-mysql:mysql
    - gerrit-mail:mail
-  environment:
-    MAIL_USER: "gerrit"
-    MAIL_PASS: "gerrit"
+  privileged: true
 gerrit-mysql:
   image: "mysql"
   environment:

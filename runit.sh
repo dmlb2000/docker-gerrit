@@ -7,6 +7,12 @@ if [ -z $GERRIT_ADDR ] ; then
 fi
 cp -a /gerrit/etc /data/
 GERRIT_CONFIG=/data/etc/gerrit.config
+if [[ -z $MAIL_USER ]] ; then
+  MAIL_USER=$(echo $MAIL_ENV_smtp_user | cut -d: -f1)
+fi
+if [[ -z $MAIL_PASS ]] ; then
+  MAIL_PASS=$(echo $MAIL_ENV_smtp_user | cut -d: -f2)
+fi
 sed -i 's/@@MYSQL_ADDR@@/'$MYSQL_PORT_3306_TCP_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@GERRIT_ADDR@@/'$GERRIT_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_ADDR@@/'$MAIL_PORT_25_TCP_ADDR'/' $GERRIT_CONFIG
