@@ -17,7 +17,7 @@ gerrit-mysql:
     MYSQL_USER: "gerrit"
     MYSQL_PASSWORD: "gerrit"
 gerrit-mail:
-  image: "catatnight/postfix"
+  image: "dmlb2000/docker-postfix"
   environment:
     maildomain: mail.dmlb2000.org
     smtp_user: gerrit:gerrit
