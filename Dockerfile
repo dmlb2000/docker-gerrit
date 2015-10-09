@@ -8,4 +8,5 @@ COPY runit.sh /gerrit/runit.sh
 COPY etc /gerrit/etc
 RUN chmod +x /gerrit/runit.sh
 EXPOSE 8080
+EXPOSE 29418
 CMD /gerrit/runit.sh
