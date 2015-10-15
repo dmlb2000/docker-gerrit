@@ -3,7 +3,7 @@ from java
 RUN mkdir /gerrit /data
 WORKDIR /data
 VOLUME /data
-ENV GERRIT_VERSION 2.11.3
+ENV GERRIT_VERSION 2.11.4
 COPY runit.sh /gerrit/runit.sh
 COPY etc /gerrit/etc
 RUN chmod +x /gerrit/runit.sh
