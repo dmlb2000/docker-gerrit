@@ -18,6 +18,7 @@ sed -i 's/@@GERRIT_ADDR@@/'$GERRIT_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_ADDR@@/'$MAIL_PORT_25_TCP_ADDR'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_USER@@/'$MAIL_USER'/' $GERRIT_CONFIG
 sed -i 's/@@MAIL_PASS@@/'$MAIL_PASS'/' $GERRIT_CONFIG
+sed -i 's/@@AUTH_TYPE@@/'$AUTH_TYPE'/' $GERRIT_CONFIG
 java -jar /tmp/gerrit.war init -d /data --batch
 java -jar /tmp/gerrit.war reindex -d /data
 /data/bin/gerrit.sh supervise
