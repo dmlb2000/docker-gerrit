@@ -9,3 +9,8 @@ There's a few dependencies:
 
 I'd suggest wrapping this docker container with your own 
 ```gerrit.config``` and ```secure.config```.
+
+## Gerrit Plugins
+
+try setting GERRIT_PLUGINS environment variable to http urls
+for curl to download...
