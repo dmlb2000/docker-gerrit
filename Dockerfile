@@ -4,7 +4,8 @@ RUN mkdir /gerrit /data
 WORKDIR /data
 VOLUME /data
 ENV GERRIT_VERSION 2.11.4
-ENV AUTH_TYPE OPENID
+ENV GERRIT_AUTH_TYPE OPENID
+ENV GERRIT_PLUGINS ""
 COPY runit.sh /gerrit/runit.sh
 COPY etc /gerrit/etc
 RUN chmod +x /gerrit/runit.sh
