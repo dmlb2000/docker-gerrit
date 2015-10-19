@@ -10,6 +10,8 @@ gerrit:
    - gerrit-mail:mail
   privileged: true
   user: "1000"
+  environment:
+    GERRIT_PLUGINS: "https://gerrit-ci.gerritforge.com/job/plugin-github-mvn-stable-2.11/lastSuccessfulBuild/artifact/github-oauth/target/github-oauth-2.11.jar https://gerrit-ci.gerritforge.com/job/plugin-github-mvn-stable-2.11/lastSuccessfulBuild/artifact/github-plugin/target/github-plugin-2.11.jar"
 gerrit-mysql:
   image: "mysql"
   environment:
